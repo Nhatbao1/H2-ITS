@@ -1,24 +1,22 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
-
+import GridComponent from './GridComponent';
 function App() {
+  const [row, setRow] = useState();
+  const [col, setCol] = useState();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1>Grid Change Color</h1>
+      <div className="App">
+        <div className="input">
+          <input type="text" placeholder='Nhap So Hang' onChange={(e) => setCol(e.target.value)} />
+          <input type="text" placeholder='Nhap So Cot' onChange={(e) => setRow(e.target.value)} />
+        </div>
+      </div>
+      <GridComponent row={row} col={col}></GridComponent>
+    </>
+
   );
 }
 
